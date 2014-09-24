@@ -1,0 +1,52 @@
+char* dashInsert(int num){
+
+	char newNum[100]; // tozi masiv e pomo6ten polzva se za narejdane na cifrite
+	int i = 0, k , p = num; // i, k-broq4i
+	bool check = 0, lastCheck = 0; // s tezi bulevi promenlivi proverqvame dali cifrata e ne4etna
+	char* ptr;
+	ptr=&lastNum[0];
+
+	if (p == 0) // prpverqva dali num ne e 0 i ako ne e broi cifrite mu
+		newNum[0] = p;
+
+	else
+	{
+		while (p!=0){
+			p /= 10;
+			i++;
+		}
+	}
+	k = i;
+    p=num;
+
+    newNum[k]='\0';
+    k--;
+
+	while (k >= 0){
+		newNum[k] = (p % 10) + '0';
+		p = p/10;
+		k--;
+	}
+    k=0;
+	for (int j = 0; k < i; j++, k++)
+	{
+		if(newNum[k]%2==1)//proverqva dali teku6toto 4islo e ne4etno
+            check=1;
+        else
+            check=0;
+
+        if(check==1 && lastCheck==1)
+        {
+            lastNum[j]='-'; // lastNum e globalen masiv
+            j++;
+        }
+
+        lastNum[j]=newNum[k];
+
+        lastCheck=check;
+	}
+
+
+
+	return lastNum;
+}
